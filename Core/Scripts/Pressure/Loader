@@ -1010,7 +1010,7 @@ cons[#cons+1] = game.ProximityPromptService.PromptButtonHoldBegan:Connect(functi
 end)
 local sounds = game.ReplicatedStorage.Sounds
 
-local window = lib:MakeWindow({Title = "Fire~Hub: Pressure", CloseCallback = function()
+local window = lib:MakeWindow({Title = "YOUHUB | PRESSURE", CloseCallback = function()
 	for i,v in defaults do
 		vals[i] = v
 	end
@@ -1032,8 +1032,11 @@ page:AddSeparator()
 page:AddSlider({Caption = "Walk Speed", Callback = function(bool)
 	vals.WalkSpeed = bool
 end, Default = 16, Min = 16, Max = 100, Step = 1})
+page:AddSlider({Caption = "Fov", Callback = function(bool)
+	workspace.CurrentCamera.FieldOfView = bool
+end, Default = 70, Min = 80, Max = 120, Step = 1})
 page:AddSeparator()
-page:AddButton({Caption = "Kill", Callback = function(bool)
+page:AddButton({Caption = "Reset Character", Callback = function(bool)
 	plr.Character.Humanoid.Health = -10
 end})
 
@@ -1441,4 +1444,4 @@ elseif getfenv().toclipboard or getfenv().setclipboard then
 else
 	page:AddLabel({Caption = "Discord: "..dsc})
 end
-page:AddLabel({Caption = "Owner: xinfernusx (discord)"})
+page:AddLabel({Caption = "Owner: xinfernusx & rechedmcvn (discord)"})
